@@ -1,0 +1,31 @@
+{
+  "name": "miniprogram-materials",
+  "version": "0.1.0",
+  "description": "This is a ice material project for miniprogram App",
+  "author": "",
+  "scripts": {
+    "deploy": "npm run publish && npm run generate && npm run sync",
+    "publish": "ts-node ./scripts/publish.ts",
+    "generate": "iceworks generate",
+    "sync": "ts-node ./scripts/upload.ts",
+    "lint": "npm run eslint",
+    "eslint": "eslint --cache --ext .js,.jsx ./",
+    "stylelint": "stylelint ./**/*.css"
+  },
+  "files": ["build"],
+  "devDependencies": {
+    "@ice/spec": "^1.0.1",
+    "ali-oss": "^6.9.1",
+    "eslint": "^6.0.1",
+    "fs-extra": "^9.0.1",
+    "ice-npm-utils": "^2.0.0",
+    "iceworks": "^3.2.5",
+    "stylelint": "^13.1.0",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.7.5"
+  },
+  "materialConfig": {
+    "template": "@icedesign/ice-react-material-template",
+    "type": "react"
+  }
+}

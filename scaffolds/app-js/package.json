@@ -1,0 +1,24 @@
+{
+  "name": "@ice/scaffolds-app-js",
+  "description": "React 小程序应用工程，使用 JavaScript。",
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "ice.js": "^1.6.3"
+  },
+  "scripts": {
+    "start": "icejs start",
+    "build": "icejs build"
+  },
+  "scaffoldConfig": {
+    "title": "Miniprogram App - JS",
+    "category": "Basic",
+    "screenshot": "https://img.alicdn.com/tfs/TB1utDfb9slXu8jSZFuXXXg7FXa-746-1322.png",
+    "name": "Miniprogram App - JS"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  }
+}
