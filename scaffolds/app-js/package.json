@@ -1,5 +1,5 @@
 {
-  "name": "@ice/scaffolds-miniprogram-app-js",
+  "name": "@miniprogram-materials/scaffolds-app-js",
   "version": "0.1.0",
   "description": "React 小程序应用工程，使用 JavaScript。",
   "dependencies": {
@@ -18,6 +18,9 @@
     "category": "Basic",
     "screenshot": "https://img.alicdn.com/tfs/TB1utDfb9slXu8jSZFuXXXg7FXa-746-1322.png",
     "name": "Miniprogram App - JS"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "engines": {
     "node": ">=8.0.0"

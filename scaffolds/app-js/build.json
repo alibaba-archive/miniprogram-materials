@@ -4,8 +4,5 @@
       "path": "/",
       "source": "pages/Home/index"
     }
-  ],
-  "window": {
-    "defaultTitle": "Mini App"
-  }
+  ]
 }
