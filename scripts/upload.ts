@@ -16,7 +16,7 @@ injectComponents().then(() => {
   })
     // @ts-ignore
     .put(
-      path.join('assets', 'materials', 'rax-materials.json'),
+      path.join('assets', 'materials', 'miniprogram-materials.json'),
       path.resolve(__dirname, '../build/materials.json')
     ).then(result => {
       console.log('materials.json upload success', result);

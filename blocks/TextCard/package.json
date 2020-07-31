@@ -1,0 +1,40 @@
+{
+  "name": "text-card",
+  "version": "0.1.0",
+  "description": "intro block",
+  "files": [
+    "src/",
+    "build/",
+    "screenshot.png"
+  ],
+  "keywords": [
+    "ice",
+    "react",
+    "block"
+  ],
+  "scripts": {
+    "start": "build-scripts start",
+    "build": "build-scripts build",
+    "screenshot": "screenshot -l -s mountNode",
+    "prepublishOnly": "npm run build && npm run screenshot"
+  },
+  "dependencies": {
+    "prop-types": "^15.5.8"
+  },
+  "devDependencies": {
+    "@alib/build-scripts": "^0.1.8",
+    "@ice/screenshot": "^0.1.1",
+    "build-plugin-block": "^1.0.0",
+    "react": "^16.3.0",
+    "react-dom": "^16.3.0"
+  },
+  "blockConfig": {
+    "name": "TextCard",
+    "title": "text card block",
+    "category": "Information"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT"
+}
