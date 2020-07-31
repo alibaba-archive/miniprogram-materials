@@ -1,5 +1,6 @@
 {
-  "name": "@ice/scaffolds-app-js",
+  "name": "@ice/scaffolds-miniprogram-app-js",
+  "version": "0.1.0",
   "description": "React 小程序应用工程，使用 JavaScript。",
   "dependencies": {
     "react": "^16.13.1",
