@@ -7,7 +7,7 @@
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
-    "ice.js": "^1.6.3"
+    "ice.js": "^1.7.0"
   },
   "scripts": {
     "start": "icejs start",
