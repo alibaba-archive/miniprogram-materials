@@ -5,7 +5,7 @@ import styles from './index.module.scss';
 
 export default function TextCard({ value }) {
   return (
-    <div className={styles.TextCard}>
+    <div className={styles.container}>
       TextCard {value}
     </div>
   );
