@@ -14,10 +14,10 @@
     "build": "icejs build"
   },
   "scaffoldConfig": {
-    "title": "MiniApp - Ts",
+    "title": "MiniApp - TS",
     "category": "Basic",
     "screenshot": "https://img.alicdn.com/tfs/TB11L00Qrr1gK0jSZFDXXb9yVXa-744-1328.png",
-    "name": "MiniApp - Ts"
+    "name": "MiniApp - TS"
   },
   "publishConfig": {
     "access": "public"

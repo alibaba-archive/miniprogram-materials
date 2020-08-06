@@ -14,10 +14,10 @@
     "build": "icejs build"
   },
   "scaffoldConfig": {
-    "title": "Miniprogram App - JS",
+    "title": "MiniApp - JS",
     "category": "Basic",
     "screenshot": "https://img.alicdn.com/tfs/TB11L00Qrr1gK0jSZFDXXb9yVXa-744-1328.png",
-    "name": "Miniprogram App - JS"
+    "name": "MiniApp - JS"
   },
   "publishConfig": {
     "access": "public"
