@@ -26,6 +26,6 @@
   },
   "materialConfig": {
     "template": "@icedesign/ice-react-material-template",
-    "type": "react"
+    "type": "miniProgram"
   }
 }
