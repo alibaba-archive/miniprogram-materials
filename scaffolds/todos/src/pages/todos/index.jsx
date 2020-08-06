@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { usePageShow } from 'ice';
 
 import AddButton from '@/components/add-button';
-import logo from '@/public/logo.svg';
 import styles from './index.module.scss';
+
+const AVATAR_PLACEHOLDER = 'https://img.alicdn.com/tfs/TB1DHJHdypE_u4jSZKbXXbCUVXa-192-192.png';
 
 const Todos = (props) => {
   const { history } = props;
@@ -61,8 +62,8 @@ const Todos = (props) => {
   return (
     <view className={styles['page-todos']}>
       <view className={styles.user}>
-        <image className={styles.avatar} src={userInfo.avatar ? logo : logo} alt="用户头像" />
-        <text className={styles.nickname}>{userInfo.nickName ? `${userInfo.nickName}'s` : 'My' } Todo List</text>
+        <image className={styles.avatar} src={userInfo.avatar ? userInfo.avatar : AVATAR_PLACEHOLDER} alt="用户头像" />
+        <text className={styles.nickname}>{userInfo.nickName ? userInfo.nickName : 'My' } Todo List</text>
       </view>
       
       <view className={styles['todo-items']}>

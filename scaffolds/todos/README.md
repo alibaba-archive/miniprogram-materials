@@ -1,3 +1,9 @@
-# todos example with react for miniapp
+## Getting Started
 
-https://github.com/ice-lab/icejs/tree/master/examples
+### `npm run start`
+
+Runs the app in development mode.
+
+### `npm run build`
+
+Builds the app for production to the `build` folder.

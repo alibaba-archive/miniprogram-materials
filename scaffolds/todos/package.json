@@ -1,18 +1,26 @@
 {
-  "name": "todos-example-with-miniapp",
-  "description": "miniapp example",
+  "name": "@miniprogram-materials/scaffolds-todos",
+  "version": "0.1.0",
+  "description": "一个使用 React 编写的 Todo List 小程序。",
   "dependencies": {
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1",
-    "universal-request": "^2.2.0"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "devDependencies": {
-    "miniapp-history": "^0.1.2",
-    "miniapp-render": "^1.0.1"
+    "ice.js": "1.7.0-7"
   },
   "scripts": {
     "start": "icejs start",
     "build": "icejs build"
+  },
+  "scaffoldConfig": {
+    "title": "Todo App",
+    "category": "Basic",
+    "screenshot": "https://img.alicdn.com/tfs/TB1e41ih639YK4jSZPcXXXrUFXa-742-1332.png",
+    "name": "Todo App - JS"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "engines": {
     "node": ">=8.0.0"
