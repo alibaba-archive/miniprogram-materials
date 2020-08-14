@@ -1,0 +1,37 @@
+.search-nav {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 24rpx;
+}
+.search-nav__input {
+  flex-grow: 1;
+  margin-right: 36rpx;
+}
+.trend {
+  margin: 0 24rpx 24rpx;
+  padding: 50rpx 40rpx 40rpx;
+  background-color: white;
+  border-radius: 24rpx;
+}
+.trend-title {
+  font-size: 28rpx;
+}
+.trend-body {
+  margin: -6rpx;
+  margin-top: 16rpx;
+}
+.trend-body__item {
+  display: inline-block;
+  width: 33.3333%;
+  padding: 12rpx 6rpx;
+}
+.trend-body__item view {
+  border-radius: 10000rpx;
+  padding: 16rpx;
+  background: #f5f5f5;
+  text-align: center;
+}
+.search-cancel {
+  font-size: 24rpx;
+}

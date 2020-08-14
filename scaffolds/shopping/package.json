@@ -1,0 +1,22 @@
+{
+  "name": "@miniprogram-materials/scaffolds-shopping",
+  "version": "0.1.0",
+  "description": "使用 React 编写的电商小程序",
+  "dependencies": {
+    "mini-antui": "^0.4.35",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "ice.js": "1.7.0"
+  },
+  "scripts": {
+    "start": "icejs start",
+    "build": "icejs build"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "private": true,
+  "originTemplate": "@miniprogram-materials/scaffolds-app-js"
+}

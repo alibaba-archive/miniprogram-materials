@@ -1,0 +1,30 @@
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.empty__cover {
+  width: 220rpx;
+  height: 220rpx;
+}
+.empty__title {
+  margin-top: 33rpx;
+  line-height: 45rpx;
+  font-size: 32rpx;
+  color: #656565;
+}
+.empty__description {
+  font-size: 26rpx;
+  line-height: 37rpx;
+  margin-top: 11rpx;
+  color: #999;
+}
+.empty__nav {
+  margin-top: 35rpx;
+  border: 1rpx solid #979797;
+  border-radius: 100000rpx;
+  padding: 9rpx 30rpx;
+  line-height: 37rpx;
+  font-size: 26rpx;
+  color: #666;
+}

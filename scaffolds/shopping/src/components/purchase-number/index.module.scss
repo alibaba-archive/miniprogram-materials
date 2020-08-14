@@ -1,0 +1,22 @@
+.purchase-number {
+  display: flex;
+  font-size: 30rpx;
+  text-align: center;
+}
+.purchase-number__subtract {
+  background-color: #fbfbfb;
+}
+.purchase-number__number {
+  background-color: #f5f5f5;
+  padding: 10rpx;
+  min-width: 80rpx;
+}
+.purchase-number__plus {
+  background-color: #f5f5f5;
+}
+.purchase-number__subtract,
+.purchase-number__plus {
+  color: #999;
+  padding: 10rpx;
+  width: 60rpx;
+}

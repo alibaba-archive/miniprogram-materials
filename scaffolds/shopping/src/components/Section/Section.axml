@@ -1,0 +1,6 @@
+<view class="section {{className}} {{gutterTop?'section--gutter-top':''}} {{gutterBottom?'section--gutter-bottom':''}}">
+  <title a:if="{{title}}" className="section-title">{{title}}</title>
+  <view class="{{paddingChildren?'section-children--padding':''}}">
+    <slot />
+  </view>
+</view>

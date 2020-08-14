@@ -1,0 +1,61 @@
+.ticket {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 12rpx;
+  background: #ffede6;
+  position: relative;
+}
+.ticket-left {
+  padding: 26rpx 20rpx 20rpx;
+}
+.ticket-left__line-price {
+  display: flex;
+  align-items: baseline;
+}
+.ticket-left__price-logo {
+  font-size: 26rpx;
+  color: #ff5000;
+  line-height: 20rpx;
+}
+.ticket-left__price {
+  font-size: 50rpx;
+  color: #ff5000;
+  line-height: 42rpx;
+  margin: 0 10rpx 0 6rpx;
+}
+.ticket-left__price-dec {
+  font-size: 26rpx;
+  color: #ff5000;
+  line-height: 24rpx;
+}
+.ticket-left__time,
+.ticket-left__baseline {
+  font-size: 20rpx;
+  color: #ff5000;
+  line-height: 20rpx;
+}
+.ticket-left__baseline {
+  margin-bottom: 12rpx;
+  margin-top: 20rpx;
+}
+.ticket-confirm {
+  background-image: linear-gradient(90deg, #ff9000 0%, #ff5000 100%);
+  border-radius: 10000rpx;
+  font-size: 24rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 30rpx;
+  padding: 8rpx 24rpx;
+  margin-right: 32rpx;
+}
+.circle {
+  width: 24rpx;
+  height: 24rpx;
+  border-radius: 50%;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateX(50%) translateY(-50%);
+  background-color: #fff;
+}

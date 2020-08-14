@@ -1,0 +1,22 @@
+.tab {
+  display: flex;
+  align-items: baseline;
+  padding: 16rpx 24rpx;
+}
+.tab-item {
+  flex-shrink: 0;
+  margin-right: 29rpx;
+  padding: 7rpx 20rpx;
+  color: #666;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+}
+.tab-item image {
+  width: 12rpx;
+  height: 14rpx;
+  margin-left: 6rpx;
+}
+.tab-item--active {
+  color: #009d9a;
+}

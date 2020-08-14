@@ -1,0 +1,17 @@
+<view class="purchase-number">
+  <view
+    onTap="subtract"
+    class="purchase-number__subtract"
+  >
+    -
+  </view>
+  <view class="purchase-number__number">
+    {{value}}
+  </view>
+  <view
+    onTap="plus"
+    class="purchase-number__plus"
+  >
+    +
+  </view>
+</view>

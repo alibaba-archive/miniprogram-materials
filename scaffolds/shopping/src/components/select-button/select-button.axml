@@ -1,0 +1,14 @@
+<view class="select-group">
+  <view
+    a:for="{{options}}"
+    class="select-col"
+  >
+    <view
+      data-id="{{item.id}}"
+      onTap="onSelectOption"
+      class="select-item {{selectedOptionId===item.id?'select-item--active':''}}"
+    >
+      {{item.name}}
+    </view>
+  </view>
+</view>

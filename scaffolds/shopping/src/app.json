@@ -1,0 +1,73 @@
+{
+  "routes": [
+    {
+      "path": "/handbag",
+      "source": "pages/handbag/index",
+      "window": {
+         "defaultTitle": "门店商品"
+      }
+    },
+    {
+      "path": "/cart",
+      "source": "pages/cart/index",
+      "window": {
+         "defaultTitle": "屈臣氏购物车"
+      }
+    },
+    {
+      "path": "/my",
+      "source": "pages/my/index",
+      "window": {
+        "defaultTitle": "个人中心",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    {
+      "path": "/my-order",
+      "source": "pages/my-order/index"
+    },
+    {
+      "path": "/my-ticket",
+      "source": "pages/my-ticket/index"
+    },
+    {
+      "path": "/search",
+      "source": "pages/search/index"
+    },
+    {
+      "path": "/category",
+      "source": "pages/category/index"
+    }
+  ],
+  "window": {
+    "defaultTitle": "",
+    "titleBarColor": "#fff",
+    "pullRefresh": false
+  },
+  "tabBar": {
+    "textColor": "#333333",
+    "selectedColor": "#009D9A",
+    "backgroundColor": "#f2f2f2",
+    "items": [
+      {
+        "path": "/handbag",
+        "icon": "https://gw.alipayobjects.com/mdn/rms_107da2/afts/img/A*WLzeR4T4_oMAAAAAAAAAAABkARQnAQ",
+        "activeIcon": "https://gw.alipayobjects.com/mdn/rms_107da2/afts/img/A*IRA7QYpBww4AAAAAAAAAAABkARQnAQ",
+        "name": "门店商品"
+      },
+      {
+        "path": "/cart",
+        "icon": "https://gw.alipayobjects.com/mdn/rms_107da2/afts/img/A*PXYbS4CiYV8AAAAAAAAAAABkARQnAQ",
+        "activeIcon": "https://gw.alipayobjects.com/mdn/rms_107da2/afts/img/A*lt8nQZUXZV8AAAAAAAAAAABkARQnAQ",
+        "name": "购物车"
+      },
+      {
+        "path": "/my",
+        "icon": "https://gw.alipayobjects.com/mdn/rms_107da2/afts/img/A*n1f8SYBo_RkAAAAAAAAAAABkARQnAQ",
+        "activeIcon": "https://gw.alipayobjects.com/mdn/rms_107da2/afts/img/A*q2eOQpQEzDsAAAAAAAAAAABkARQnAQ",
+        "name": "个人中心"
+      }
+    ]
+  },
+  "debug": true
+}

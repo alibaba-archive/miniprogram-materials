@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "drawer": "/components/Drawer/Drawer",
+    "select-button": "/components/select-button/select-button",
+    "purchase-number": "/components/purchase-number/purchase-number"
+  }
+}

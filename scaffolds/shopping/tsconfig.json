@@ -1,0 +1,21 @@
+{
+  "compileOnSave": false,
+  "buildOnSave": false,
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "build",
+    "module": "esnext",
+    "target": "es6",
+    "jsx": "react",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "allowJs": true,
+    "rootDir": "./",
+    "paths": {
+      "@/*": ["./src/*"],
+      "ice": [".ice/index.ts"]
+    }
+  },
+  "include": ["src/*", ".ice"],
+  "exclude": ["node_modules", "build", "public"]
+}

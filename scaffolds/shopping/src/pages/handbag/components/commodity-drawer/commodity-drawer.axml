@@ -1,0 +1,134 @@
+<drawer
+  show="{{show}}"
+  onClose="onClose"
+>
+  <view
+    a:if="{{currentCommodity.options}}"
+    class="commodity"
+  >
+    <view class="commodity-info">
+      <image
+        class="commodity-info__cover"
+        src="{{currentCommodity.cover}}"
+        mode="scaleToFill"
+      />
+      <view class="commodity-info__right">
+        <view class="commodity-info__price-section">
+          <view class="commodity-info__price-icon">¥</view>
+          <view class="commodity-info__price">{{currentCommodity.price}}</view>
+        </view>
+        <view class="commodity-info__storage">库存{{currentCommodity.storage}}件</view>
+        <view class="commodity-info__type">已选：{{currentCommodity.type}}</view>
+      </view>
+    </view>
+    <view class="commodity-shipping-method">
+      <select-button
+        selectedOptionId="{{selectedShippingMethodId}}"
+        options="{{currentCommodity.shippingMethod}}"
+        onSelectOption="onShippingMethodSelect"
+      />
+    </view>
+    <view class="commodity-divider"></view>
+    <view class="commodity-address">
+      <view class="commodity-address__header">
+        <view class="commodity-address__header-title">
+          配送至
+        </view>
+        <view class="commodity-address__header-description">
+          地址不同可能会影响商品库存和运费，请正确选择
+        </view>
+      </view>
+      <view class="commodity-address__body">
+        <view class="commodity-address__body-left">
+          <image
+            class="commodity-address__body-location"
+            src="https://gw.alipayobjects.com/mdn/rms_107da2/afts/img/A*1U19Rbxzg8MAAAAAAAAAAABkARQnAQ"
+            mode="scaleToFill"
+          />
+          <view class="commodity-address__body-detail">
+            {{address}}
+          </view>
+        </view>
+        <image
+          class="nav-icon"
+          src="https://gw.alipayobjects.com/mdn/rms_107da2/afts/img/A*yeGUSJlo0gsAAAAAAAAAAABkARQnAQ"
+          mode="scaleToFill"
+        />
+      </view>
+    </view>
+    <view class="commodity-divider"></view>
+    <view class="commodity-shipping-from">
+      <view class="commodity-shipping-from__header">
+        配送方式
+      </view>
+      <view class="commodity-shipping-from__body">
+        <view class="commodity-shipping-from__body-left">
+          <view class="commodity-shipping-from__body-store">
+            <view class="commodity-shipping-from__body-type">
+              {{currentCommodity.shippingFrom.type}}
+            </view>
+            <view class="commodity-shipping-from__body-from">
+              由 {{currentCommodity.shippingFrom.name}} 发货
+            </view>
+          </view>
+          <view class="commodity-shipping-from__body-time">
+            {{currentCommodity.shippingTime.payTime}} 前付款，预计
+            <view class="commodity-shipping-from__body-day">
+              {{currentCommodity.shippingTime.receiveDay}}
+            </view>
+            {{currentCommodity.shippingTime.receiveFormatDay}}送达
+          </view>
+        </view>
+        <view class="commodity-shipping-from__body-right">
+          <view class="commodity-shipping-from__body-price">运费：9.00 元</view>
+          <image
+            class="nav-icon"
+            src="https://gw.alipayobjects.com/mdn/rms_107da2/afts/img/A*yeGUSJlo0gsAAAAAAAAAAABkARQnAQ"
+            mode="scaleToFill"
+          />
+        </view>
+      </view>
+    </view>
+    <view class="commodity-divider"></view>
+    <view class="commodity-option">
+      <view
+        a:for="{{currentCommodity.options}}"
+        class="commodity-option-item"
+      >
+        <view class="commodity-option-item__title">
+          {{item.name}}
+        </view>
+        <view class="commodity-option-item__value">
+          <select-button
+            selectedOptionId="{{selectedOptionIds[index]}}"
+            options="{{item.values}}"
+            identifyId="{{index}}"
+            onSelectOption="onOptionSelect"
+          />
+        </view>
+      </view>
+    </view>
+    <view class="commodity-divider"></view>
+    <view class="commodity-purchase-number">
+      <view class="commodity-purchase-number__header">
+        <view class="commodity-purchase-number__title">
+          购买数量
+        </view>
+        <view class="commodity-purchase-number__description">
+          （仅支持{{currentCommodity.maxPurchaseNumber}}倍购买）
+        </view>
+      </view>
+      <purchase-number
+        value="{{purchaseNumber}}"
+        max="{{currentCommodity.maxPurchaseNumber}}"
+        onChange="onPurchaseNumberChange"
+      >
+    </view>
+    <view
+      class="commodity-confirm"
+      onTap="onConfirm"
+    >
+      确定
+    </view>
+  </view>
+</drawer>

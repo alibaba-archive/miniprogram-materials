@@ -1,0 +1,21 @@
+.select-group {
+  margin: -15rpx;
+}
+.select-col {
+  display: inline-block;
+  padding: 15rpx;
+}
+.select-item {
+  border-radius: 12rpx;
+  font-size: 24rpx;
+  line-height: 24rpx;
+  padding: 20rpx 36rpx;
+  background: #f6f6f6;
+  color: #333;
+  border: 1rpx solid #f6f6f6;
+}
+.select-item--active {
+  background: #fff9f9;
+  border: 1rpx solid #ff5000;
+  color: #ff5000;
+}

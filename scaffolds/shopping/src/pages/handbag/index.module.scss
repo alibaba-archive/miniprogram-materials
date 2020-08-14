@@ -1,0 +1,14 @@
+.search-nav {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 24rpx;
+  box-sizing: border-box;
+}
+.search-nav__input {
+  flex-grow: 1;
+  margin-right: 36rpx;
+}
+.empty-position {
+  margin-top: 117rpx;
+}

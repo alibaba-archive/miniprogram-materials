@@ -1,0 +1,48 @@
+.card-no-shadow {
+  overflow: hidden;
+  border-radius: 8px;
+}
+.card-shadow {
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.08);
+}
+.img {
+  width: 100%;
+}
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.p,
+.blockquote {
+  padding: 0 32rpx;
+}
+.h1 {
+  font-size: 42rpx;
+}
+.h2 {
+  font-size: 36rpx;
+}
+.h3 {
+  font-size: 32rpx;
+}
+.h4 {
+  font-size: 28rpx;
+}
+.p {
+  font-size: 32rpx;
+  line-height: 1.5em;
+}
+.blockquote {
+  margin: -8rpx 0 48rpx;
+  color: gray;
+  font-size: 28rpx;
+}
+.figcaption {
+  margin: 8rpx 0 48rpx;
+  color: gray;
+  font-size: 28rpx;
+  text-align: center;
+}

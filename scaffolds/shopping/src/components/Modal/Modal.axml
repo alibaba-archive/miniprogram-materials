@@ -1,0 +1,9 @@
+<view class="modal-{{show ? 'show' : 'hide'}}" disable-scroll="{{true}}">
+  <view class="modal-mask" >
+    <view class="modal-content">
+    <view class="modal-close" onTap="onClose" />
+
+      <slot/>
+    </view>
+  </view>
+</view>

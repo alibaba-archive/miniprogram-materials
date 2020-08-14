@@ -1,0 +1,34 @@
+<view
+  class="search {{className}}"
+  onTap="{{disable?'onFocus':''}}"
+>
+  <image
+    class="search__icon"
+    src="https://gw.alipayobjects.com/mdn/rms_107da2/afts/img/A*-ZudTL5rua4AAAAAAAAAAABkARQnAQ"
+    mode="scaleToFill"
+  />
+
+  <input
+    placeholder="搜索该门店的宝贝"
+    class="search__input"
+    value="{{value}}"
+    disabled="{{disabled}}"
+    focus="{{focus}}"
+    onBlur="onBlur"
+    onFocus="onFocus"
+    onInput="onInput"
+    onConfirm="onConfirm"
+    placeholder-class="search__input-placeholder"
+  />
+  <view
+    a:if="{{!disabled && value}}"
+    class="search__clear-container"
+    catchTap="clear"
+  >
+    <image
+      class="search__clear"
+      src="https://gw.alipayobjects.com/mdn/rms_107da2/afts/img/A*xttPT7EFYEAAAAAAAAAAAABkARQnAQ"
+      mode="scaleToFill"
+    />
+  </view>
+</view>

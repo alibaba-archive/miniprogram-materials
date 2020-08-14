@@ -1,0 +1,65 @@
+.drawer-overflow {
+  position: fixed;
+  z-index: 98;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateY(100%);
+}
+.drawer-mask {
+  position: fixed;
+  z-index: 99;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 148rpx 1fr;
+  grid-template-areas: 'OVERLAY' 'DRAWER';
+  transform: translateY(100%);
+  transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.drawer-overlay {
+  grid-area: 'OVERLAY';
+}
+.drawer {
+  grid-area: 'DRAWER';
+  background: #fff;
+  border-radius: 20rpx 20rpx 0 0;
+  transition: all 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transform: translateY(30%);
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.08);
+  opacity: 0;
+  overflow: auto;
+}
+.drawer--open {
+  transform: translateY(0);
+}
+.drawer--open .drawer {
+  transform: translateY(0);
+  opacity: 1;
+  transition-delay: 0.25s;
+}
+.drawer--open .drawer-close {
+  opacity: 1;
+  transition-delay: 0.25s;
+}
+.drawer-close {
+  position: fixed;
+  z-index: 100;
+  opacity: 0;
+  background-image: url('https://gw.alipayobjects.com/mdn/rms_107da2/afts/img/A*YJv7Sb9KR9sAAAAAAAAAAABkARQnAQ');
+  transition: opacity 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 36rpx 36rpx;
+  width: 76rpx;
+  height: 76rpx;
+  top: 148rpx;
+  right: 0;
+}

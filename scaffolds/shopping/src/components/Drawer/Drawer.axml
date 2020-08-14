@@ -1,0 +1,22 @@
+<view
+  a:if="{{show}}"
+  class="drawer-overflow"
+>
+</view>
+<view class="drawer-mask {{show?'drawer--open':''}}">
+  <view
+    class="drawer-overlay"
+    onTap="onClose"
+    disable-scroll="{{true}}"
+  />
+  <view
+    class="drawer-close"
+    onTap="onClose"
+  ></view>
+  <view
+    class="drawer"
+    disable-scroll="{{false}}"
+  >
+    <slot />
+  </view>
+</view>
