@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 
+import todosService from '@/services/todos';
+import storageService from '@/services/storage';
+
 import AddButton from '@/components/add-button';
 import styles from './index.module.scss';
 
-const AddTodo = (props) => {
-  const { history } = props;
-
+const AddTodo = () => {
   // state
   const [value, setValue] = useState('');
 
@@ -14,30 +15,28 @@ const AddTodo = (props) => {
     setValue(e.target.value);
   };
 
-  const add = () => {
-    const storageKey = 'todos';
+  const add = async () => {
+    const curTodos = await storageService.todos.get();
 
-    // eslint-disable-next-line
-    const { data } = my.getStorageSync({
-      key: storageKey
-    });
-
-    if (data !== null) {
-      data.todos.push({
+    const openId = await storageService.openId.get();
+    console.log(openId);
+    const res = await todosService.add({
+      openId,
+      content: {
         text: value,
         completed: false
-      });
-    }
-    
-    // eslint-disable-next-line 
-    my.setStorageSync({
-      key: storageKey,
-      data: {
-        todos: data.todos
       }
     });
-    
-    history.push('/todos');
+
+    const { todo } = res.data;
+
+    const newTodos = curTodos.concat(todo);
+    storageService.todos.set(newTodos);
+
+    // eslint-disable-next-line
+    wx.redirectTo({
+      url: '/pages/todos/index'
+    });
   };
 
 
@@ -48,7 +47,8 @@ const AddTodo = (props) => {
           className={styles['add-todo-input']}
           placeholder="What needs to be done?"
           value={value}
-          onChange={onChange} />
+          onChange={() => {}}
+          onInput={onChange} />
       </view>
 
       <view className={styles['todo-footer']}>

@@ -1,81 +1,157 @@
 import React, { useState } from 'react';
 import { usePageShow } from 'ice';
+import request from 'universal-request';
+
+import todosService from '@/services/todos';
+import storageService from '@/services/storage';
 
 import AddButton from '@/components/add-button';
+import logo from '@/public/logo.svg';
 import styles from './index.module.scss';
 
-const AVATAR_PLACEHOLDER = 'https://img.alicdn.com/tfs/TB1DHJHdypE_u4jSZKbXXbCUVXa-192-192.png';
+async function login () {
+  // eslint-disable-next-line
+  const res = await wx.login();
+  const { code } = res;
+  
+  const loginRes = await request({
+    url: 'http://localhost:7001/api/mp/auth/login',
+    method: 'POST',
+    data: {
+      code
+    }
+  });
+  const { openId } = loginRes.data.data;
+  await storageService.openId.set(openId);
+}
 
-const Todos = (props) => {
-  const { history } = props;
-
+const Todos = () => {
   // state
   const [userInfo, setUserInfo] = useState({});
-  const [todos, setTodos] = useState([
-    { text: 'Learning Javascript', completed: true },
-    { text: 'Learning ES2016', completed: true },
-    { text: 'Learning 小程序', completed: false },
-  ]);
+  const [todos, setTodos] = useState([]);
 
   // handlers
-  const addTodo = () => {
-    history.push('/add-todo');
+  const addTodo = async () => {
+    // eslint-disable-next-line
+    wx.redirectTo({
+      url: '/pages/add-todo/index'
+    });
   };
 
-  const onTodoChange = (text) => {
+  const onTodoChange = async id => {
+    let changedContent = {};
     const changedTodos = todos.map(todo => {
-      const completed = todo.completed;
+      const { id: curId } = todo;
+      const { completed } = todo.content;
+      if (id === curId) {
+        changedContent = {
+          ...todo.content,
+          completed: id === curId ? !completed : completed
+        };
+      }
+
       return {
         ...todo,
-        completed: text === todo.text ? !completed : completed
+        content: {
+          ...todo.content,
+          completed: id === curId ? !completed : completed
+        }
       };
     });
+
     setTodos(changedTodos);
+    await storageService.todos.set(changedTodos);
+    const openId = await storageService.openId.get();
+    await todosService.edit(id, {
+      content: changedContent,
+      openId
+    });
+  };
+
+  async function delTodo (id) {
+    const changedTodos = todos.filter(todo => {
+      const { id: curId } = todo;
+      return id !== curId;
+    });
+
+    setTodos(changedTodos);
+    await storageService.todos.set(changedTodos);
+    await todosService.del(id);
+  }
+
+  const getUserInfo = async () => {
+    // eslint-disable-next-line
+    const storedUserInfo = wx.getStorageSync('userInfo');
+    if (storedUserInfo === '') {
+      // eslint-disable-next-line
+      const res = await wx.getUserInfo();
+
+      setUserInfo(res.userInfo);
+
+      // eslint-disable-next-line
+      wx.setStorageSync('userInfo', res.userInfo);
+    }
+  };
+
+  const initTodos = async () => {
+    const openId = await storageService.openId.get();
+    const syncedTodos = await todosService.list({ openId });
+    const storedTodos = await storageService.todos.get();
+
+    const mergedTodos = syncedTodos || storedTodos || [];
+
+    console.log(storedTodos, syncedTodos, mergedTodos);
+
+    setTodos(mergedTodos);
+
+    await storageService.todos.set(mergedTodos);
   };
 
   // lifecyle function
   usePageShow(async () => {
-    // my is global variable in mini program
-    // eslint-disable-next-line
-    const myUserInfo = await my.getUserInfo();
-    setUserInfo(myUserInfo);
-    console.log('userInfo:', myUserInfo);
+    console.log('page show');
+
+    const openId = await storageService.openId.get();
+    if (!openId) {
+      await login();
+    }
+    await initTodos();
 
     // eslint-disable-next-line
-    const { data } = my.getStorageSync({
-      key: 'todos'
-    });
-
-    if (data === null) {
-      // eslint-disable-next-line
-      my.setStorageSync({
-        key: 'todos',
-        data: {
-          todos
-        }
-      });
-    } else {
-      setTodos(data.todos);
+    const storedUserInfo = wx.getStorageSync('userInfo');
+    if (userInfo !== '') {
+      setUserInfo(storedUserInfo);
     }
   });
 
   return (
     <view className={styles['page-todos']}>
       <view className={styles.user}>
-        <image className={styles.avatar} src={userInfo.avatar ? userInfo.avatar : AVATAR_PLACEHOLDER} alt="用户头像" />
-        <text className={styles.nickname}>{userInfo.nickName ? userInfo.nickName : 'My' } Todo List</text>
+        <button type='button' open-type="getUserInfo" onClick={getUserInfo} className={styles['login-button']} >
+          <view style={{display: 'flex', flexDirection: 'column'}}>
+            <image className={styles.avatar} src={userInfo.avatarUrl ? userInfo.avatarUrl : logo} alt="用户头像" />
+            <text className={styles.nickname}>{userInfo.nickName ? `${userInfo.nickName}'s` : 'My' } Todo List</text>
+          </view>
+        </button>
       </view>
       
       <view className={styles['todo-items']}>
         <view className={styles['todo-items-group']}>
           {
             todos.map(todo => (
-              <view
-                className={`${styles['todo-item']} ${todo.completed ? styles.checked : ''}`}
-                onClick={() => onTodoChange(todo.text)}
-                key={todo.text}>
-                <checkbox className={styles['todo-item-checkbox']} checked={todo.completed} />
-                <text className={styles['todo-item-text']}>{todo.text}</text>
+              <view style={{position: 'relative'}} key={todo.id}>
+                <view
+                  className={`${styles['todo-item']} ${todo.content.completed ? styles.checked : ''}`}
+                  onClick={() => onTodoChange(todo.id)}
+                >
+                  <checkbox className={styles['todo-item-checkbox']} checked={todo.content.completed} />
+                  <text className={styles['todo-item-text']}>{todo.content.text}</text>
+                </view>
+                <view
+                  className={styles['close-wrapper']}
+                  onClick={() => delTodo(todo.id)}>
+                  <view className={styles.close}/>
+                </view>
               </view>
             ))
           }
