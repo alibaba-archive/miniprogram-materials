@@ -137,7 +137,7 @@ const Todos = () => {
         <button type='button' open-type="getUserInfo" onClick={getUserInfo} className={styles['login-button']} >
           <div style={{display: 'flex', flexDirection: 'column'}}>
             <img className={styles.avatar} src={userInfo.avatarUrl ? userInfo.avatarUrl : logo} alt="用户头像" />
-            <p className={styles.nickname}>{userInfo.nickName ? `${userInfo.nickName}'s` : 'My' } Todo List</p>
+            <span className={styles.nickname}>{userInfo.nickName ? `${userInfo.nickName}'s` : 'My' } Todo List</span>
           </div>
         </button>
       </div>
