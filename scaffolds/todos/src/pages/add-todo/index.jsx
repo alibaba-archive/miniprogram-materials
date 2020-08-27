@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { isWeChatMiniProgram } from 'universal-env';
+import { history } from 'ice';
 
 import todosService from '@/services/todos';
 import storageService from '@/services/storage';
@@ -16,10 +18,9 @@ const AddTodo = () => {
   };
 
   const add = async () => {
-    const curTodos = await storageService.todos.get();
-
     const openId = await storageService.openId.get();
-    console.log(openId);
+    const curTodos = await todosService.list({ openId });
+
     const res = await todosService.add({
       openId,
       content: {
@@ -33,28 +34,32 @@ const AddTodo = () => {
     const newTodos = curTodos.concat(todo);
     storageService.todos.set(newTodos);
 
-    // eslint-disable-next-line
-    wx.redirectTo({
-      url: '/pages/todos/index'
-    });
+    if (isWeChatMiniProgram) {
+      // eslint-disable-next-line
+      wx.redirectTo({
+        url: '/pages/todos/index'
+      });
+    } else {
+      history.push('add-todo');
+    }
   };
 
 
   return (
-    <view className={styles['page-add-todo']}>
-      <view className={styles['add-todo']}>
+    <div className={styles['page-add-todo']}>
+      <div className={styles['add-todo']}>
         <input
           className={styles['add-todo-input']}
           placeholder="What needs to be done?"
           value={value}
           onChange={() => {}}
           onInput={onChange} />
-      </view>
+      </div>
 
-      <view className={styles['todo-footer']}>
+      <div className={styles['todo-footer']}>
         <AddButton text="Add Todo" onClickMe={add}/>
-      </view>
-    </view>
+      </div>
+    </div>
   );
 };
 

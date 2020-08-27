@@ -6,8 +6,8 @@ function AddButton (props) {
 
   return (
     <button type='button' className={styles['add-button']} onClick={onClickMe}>
-      <text className={styles['add-icon']}>+</text>
-      <text>{text}</text>
+      <span className={styles['add-icon']}>+</span>
+      <span>{text}</span>
     </button>
   );
 }

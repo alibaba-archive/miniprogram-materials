@@ -1,6 +1,8 @@
 import request from 'universal-request';
 
-const URL_PREFIX = 'http://localhost:7001/api/mp';
+import config from './config';
+
+const URL_PREFIX = config.URL_PREFIX;
 
 export default {
   async list ({ openId }) {

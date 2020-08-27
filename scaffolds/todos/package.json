@@ -10,7 +10,7 @@
   "devDependencies": {
     "miniapp-history": "^0.1.2",
     "miniapp-render": "^1.0.1",
-    "ice.js": "^1.7.0"
+    "ice.js": "^1.8.0"
   },
   "scripts": {
     "start": "icejs start",

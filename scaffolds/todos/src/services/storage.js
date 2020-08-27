@@ -1,20 +1,29 @@
+import { isWeChatMiniProgram } from 'universal-env';
+import MOCK_DATA from './mock';
+
 const storageKey = {
   openId: 'openId',
-  todos: 'todos'
+  todos: 'todos',
+  userInfo: 'userInfo'
 };
 
 async function getOpenId () {
-  let openId;
-  try {
-    // eslint-disable-next-line
-    const res = await wx.getStorage({
-      key: storageKey.openId
-    });
-    openId = res.data.openId;
-  } catch (err) {
-    console.error(err);
+  if (!isWeChatMiniProgram) {
+    // MOCK USER
+    return MOCK_DATA.user.openId;
+  } else {
+    let openId;
+    try {
+      // eslint-disable-next-line
+      const res = await wx.getStorage({
+        key: storageKey.openId
+      });
+      openId = res.data.openId;
+    } catch (err) {
+      console.error(err);
+    }
+    return openId;
   }
-  return openId;
 }
 
 async function setOpenId (openId) {
@@ -51,13 +60,50 @@ async function storeTodos (todos) {
   });
 }
 
+async function getUserInfo () {
+  let userInfo;
+  try {
+    // eslint-disable-next-line
+    const res = await wx.getStorage({
+      key: storageKey.userInfo
+    });
+    userInfo = res.data.userInfo;
+  } catch (err) {
+    console.error(err);
+  }
+  return userInfo;
+}
+
+async function setUserInfo (userInfo) {
+  // eslint-disable-next-line
+  await wx.setStorage({
+    key: storageKey.userInfo,
+    data: {
+      userInfo
+    }
+  });
+}
+
+function wxWrapper (func) {
+  return async (...args) => {
+    if (isWeChatMiniProgram) {
+      return await func(...args);
+    }
+  }
+}
+
 export default {
   openId: {
     get: getOpenId,
-    set: setOpenId
+    set: wxWrapper(setOpenId)
   },
   todos: {
-    get: getStoredTodos,
-    set: storeTodos
+    get: wxWrapper(getStoredTodos),
+    set: wxWrapper(storeTodos)
+  },
+  userInfo: {
+    get: wxWrapper(getUserInfo),
+    set: wxWrapper(setUserInfo)
   }
 };
+

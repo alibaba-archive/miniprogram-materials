@@ -5,6 +5,13 @@ page {
   font-family: "pingFang SC" "pingFang";
 }
 
+body {
+  flex: 1;
+  display: flex;
+  background: #323239;
+  font-family: "pingFang SC" "pingFang";
+}
+
 .page-todos {
   font-family: "pingFang SC" "pingFang";
   display: flex;
@@ -53,7 +60,7 @@ page {
 .todo-items {
   flex-grow: 1;
   font-size: 34rpx;
-  padding: 50rpx 120rpx;
+  padding: 0 120rpx;
   color: #0EFFD6;
   overflow: auto;
 }
@@ -79,9 +86,9 @@ page {
   transition: border 0.2s;
 }
 
-// .todo-item:last-child {
-//   margin-bottom: 0;
-// }
+.todo-item:last-child {
+  margin-bottom: 0;
+}
 
 .todo-item::before {
   content: '';
