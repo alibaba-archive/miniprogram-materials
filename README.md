@@ -48,6 +48,9 @@ $ iceworks generate
 $ iceworks sync
 ```
 
-## Use materials in iceworks
+## Use materials in Iceworks
 
-Add the materials data url to iceworks.
+1. Install [Iceworks for VS Code](https://marketplace.visualstudio.com/items?itemName=iceworks-team.iceworks)
+  ![](https://img.alicdn.com/tfs/TB1EdEDfODsXe8jSZR0XXXK6FXa-1446-906.gif)
+2. Add the materials data URL to Iceworks
+  ![](https://img.alicdn.com/tfs/TB1g9iMjTM11u4jSZPxXXahcXXa-1446-906.gif)
