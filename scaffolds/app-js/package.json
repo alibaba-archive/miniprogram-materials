@@ -1,6 +1,6 @@
 {
   "name": "@miniprogram-materials/scaffolds-app-js",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "React 小程序应用工程，使用 JavaScript。",
   "dependencies": {
     "react": "^16.13.1",
