@@ -2,11 +2,11 @@
   "routes": [
     {
       "path": "/",
-      "source": "pages/todos/index"
+      "source": "pages/Todos/index"
     },
     {
       "path": "/add-todo",
-      "source": "pages/add-todo/index"
+      "source": "pages/AddTodo/index"
     }
   ],
   "window": {

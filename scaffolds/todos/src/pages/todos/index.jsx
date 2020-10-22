@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { usePageShow } from 'ice';
 
-import AddButton from '@/components/add-button';
+import AddButton from '@/components/AddButton';
 import styles from './index.module.scss';
 
 const AVATAR_PLACEHOLDER = 'https://img.alicdn.com/tfs/TB1DHJHdypE_u4jSZKbXXbCUVXa-192-192.png';

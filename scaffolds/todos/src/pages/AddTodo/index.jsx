@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import AddButton from '@/components/add-button';
+import AddButton from '@/components/AddButton';
 import styles from './index.module.scss';
 
 const AddTodo = (props) => {
