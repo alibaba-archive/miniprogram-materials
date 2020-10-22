@@ -1,7 +1,7 @@
 {
   "routes": [
     {
-      "path": "/todos",
+      "path": "/",
       "source": "pages/todos/index"
     },
     {

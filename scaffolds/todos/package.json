@@ -1,6 +1,6 @@
 {
   "name": "@miniprogram-materials/scaffolds-todos",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "一个使用 React 编写的 Todo List 小程序。",
   "dependencies": {
     "react": "^16.13.1",
